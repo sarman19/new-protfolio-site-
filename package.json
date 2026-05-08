@@ -1,0 +1,10 @@
+{
+  "name": "shariar-sarman-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static portfolio implementation inspired by the supplied Figma design.",
+  "scripts": {
+    "start": "python3 -m http.server 4173",
+    "check": "python3 scripts/check_static.py"
+  }
+}
