@@ -1,0 +1,364 @@
+ (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
+diff --git a/src/styles.css b/src/styles.css
+new file mode 100644
+index 0000000000000000000000000000000000000000..7acc54f0a1d7e0b09165afccf4e22dbd7d4a9de4
+--- /dev/null
++++ b/src/styles.css
+@@ -0,0 +1,354 @@
++:root {
++  --ink: #15120d;
++  --muted: #6b6358;
++  --paper: #f7f1e8;
++  --panel: #fffaf2;
++  --cream: #f0e1c8;
++  --accent: #dd7b3f;
++  --accent-dark: #bf5924;
++  --lime: #d9f99d;
++  --mint: #bfe9d4;
++  --rose: #f7c6ba;
++  --yellow: #f4d77b;
++  --line: rgba(21, 18, 13, 0.13);
++  --shadow: 0 28px 80px rgba(82, 59, 35, 0.16);
++  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
++  color: var(--ink);
++  background: var(--paper);
++}
++
++* { box-sizing: border-box; }
++html { scroll-behavior: smooth; }
++body {
++  margin: 0;
++  min-width: 320px;
++  color: var(--ink);
++  background:
++    radial-gradient(circle at 10% 0%, rgba(221, 123, 63, 0.16), transparent 31rem),
++    radial-gradient(circle at 85% 12%, rgba(217, 249, 157, 0.3), transparent 29rem),
++    var(--paper);
++}
++a { color: inherit; text-decoration: none; }
++
++.page-shell {
++  width: min(100%, 1440px);
++  margin: 0 auto;
++  overflow: hidden;
++}
++
++.site-header {
++  display: flex;
++  align-items: center;
++  justify-content: space-between;
++  gap: 1.5rem;
++  padding: 1.4rem clamp(1rem, 4vw, 4.75rem);
++}
++.brand,
++.footer-brand {
++  font-size: clamp(1.4rem, 2vw, 2rem);
++  font-weight: 900;
++  letter-spacing: -0.06em;
++}
++.nav-links,
++.site-footer nav,
++.social-links {
++  display: flex;
++  flex-wrap: wrap;
++  align-items: center;
++  gap: clamp(0.75rem, 2vw, 1.65rem);
++  color: var(--muted);
++  font-size: 0.95rem;
++  font-weight: 600;
++}
++.nav-links a,
++.site-footer a { transition: color 180ms ease, transform 180ms ease; }
++.nav-links a:hover,
++.site-footer a:hover { color: var(--accent-dark); transform: translateY(-1px); }
++.icon-button {
++  display: grid;
++  place-items: center;
++  width: 2.8rem;
++  height: 2.8rem;
++  border: 1px solid var(--line);
++  border-radius: 999px;
++  background: var(--ink);
++  color: #fff;
++  font-weight: 800;
++}
++
++.section-grid {
++  display: grid;
++  grid-template-columns: minmax(0, 1.05fr) minmax(21rem, 0.95fr);
++  gap: clamp(2rem, 5vw, 5.5rem);
++  padding: clamp(3rem, 7vw, 7.25rem) clamp(1rem, 4vw, 4.75rem);
++}
++.hero { align-items: center; padding-top: clamp(2rem, 4vw, 3.8rem); }
++.eyebrow {
++  margin: 0 0 1rem;
++  color: var(--accent-dark);
++  font-size: 0.86rem;
++  font-weight: 900;
++  letter-spacing: 0.12em;
++  text-transform: uppercase;
++}
++.hero h1,
++.services-intro h2,
++.about h2,
++.testimonials h2,
++.work h2,
++.cta h2 {
++  margin: 0;
++  font-weight: 900;
++  letter-spacing: -0.075em;
++  line-height: 0.96;
++}
++.hero h1 { font-size: clamp(4.25rem, 14vw, 12rem); }
++.portrait-card {
++  position: relative;
++  width: min(100%, 36rem);
++  min-height: clamp(22rem, 42vw, 42rem);
++  margin-top: -0.6rem;
++  border: 1px solid rgba(255, 255, 255, 0.85);
++  border-radius: 44% 44% 2.25rem 2.25rem;
++  background: linear-gradient(155deg, #fed9b8, #d98d58 55%, #8a4c2e);
++  box-shadow: var(--shadow);
++  overflow: hidden;
++}
++.portrait-bg,
++.portrait-bg::before,
++.portrait-bg::after {
++  position: absolute;
++  content: "";
++  border-radius: 999px;
++}
++.portrait-bg { inset: 12% 12% 9%; background: rgba(255, 255, 255, 0.12); }
++.portrait-bg::before { width: 10rem; height: 10rem; top: 7%; right: 5%; background: var(--lime); }
++.portrait-bg::after { width: 15rem; height: 15rem; left: -16%; bottom: 10%; background: rgba(255, 255, 255, 0.2); }
++.portrait-person .head {
++  position: absolute;
++  top: 21%;
++  left: 50%;
++  width: clamp(7rem, 14vw, 12rem);
++  aspect-ratio: 1;
++  transform: translateX(-50%);
++  border-radius: 50% 50% 46% 46%;
++  background: #3a2317;
++  box-shadow: inset 0 -1.1rem 0 #bc6a45;
++}
++.portrait-person .body {
++  position: absolute;
++  left: 50%;
++  bottom: -8%;
++  width: clamp(18rem, 33vw, 30rem);
++  height: clamp(17rem, 29vw, 27rem);
++  transform: translateX(-50%);
++  border-radius: 45% 45% 0 0;
++  background: linear-gradient(135deg, #111, #4a2b1c 65%, #dd7b3f);
++}
++.hero-side {
++  align-self: end;
++  padding: clamp(1.5rem, 4vw, 3rem);
++  border: 1px solid var(--line);
++  border-radius: 2rem;
++  background: rgba(255, 250, 242, 0.65);
++  backdrop-filter: blur(16px);
++}
++.designer-title {
++  margin: 0 0 2.5rem;
++  font-size: clamp(3rem, 7vw, 7rem);
++  font-weight: 900;
++  letter-spacing: -0.09em;
++  line-height: 0.9;
++}
++.hero-side h2 { margin: 0 0 1rem; font-size: 1.1rem; }
++.hero-side p:not(.designer-title),
++.about p,
++.testimonial-card p {
++  color: var(--muted);
++  font-size: clamp(1rem, 1.25vw, 1.12rem);
++  line-height: 1.8;
++}
++
++.marquee {
++  border-block: 1px solid var(--line);
++  background: var(--ink);
++  color: var(--panel);
++  transform: rotate(-1.5deg) scaleX(1.02);
++}
++.marquee-track {
++  display: flex;
++  width: max-content;
++  gap: 2rem;
++  padding: 1.05rem 0;
++  font-weight: 900;
++  white-space: nowrap;
++  animation: marquee 28s linear infinite;
++}
++@keyframes marquee { to { transform: translateX(-50%); } }
++
++.services { align-items: start; }
++.services-intro h2 { max-width: 11ch; font-size: clamp(3.4rem, 8vw, 8rem); }
++.primary-link,
++.cta-button,
++.outline-button,
++.ghost-button {
++  display: inline-flex;
++  align-items: center;
++  justify-content: center;
++  gap: 0.5rem;
++  margin-top: 2rem;
++  min-height: 3.4rem;
++  padding: 0.9rem 1.25rem;
++  border-radius: 999px;
++  font-weight: 900;
++}
++.primary-link,
++.cta-button { background: var(--accent); color: #fff; box-shadow: 0 12px 30px rgba(221, 123, 63, 0.28); }
++.service-cards { display: grid; gap: 1.15rem; }
++.service-card {
++  display: grid;
++  grid-template-columns: 7.5rem 1fr;
++  align-items: center;
++  min-height: 11rem;
++  padding: 1.2rem;
++  border: 1px solid rgba(21, 18, 13, 0.1);
++  border-radius: 2rem;
++  box-shadow: var(--shadow);
++}
++.card-green { background: var(--mint); }
++.card-yellow { background: var(--yellow); }
++.card-pink { background: var(--rose); }
++.service-card h3 { margin: 0; font-size: clamp(1.55rem, 3vw, 2.45rem); letter-spacing: -0.055em; }
++.service-icon { position: relative; width: 5.2rem; height: 6.8rem; border-radius: 1.1rem; background: #fff; box-shadow: inset 0 0 0 0.45rem var(--ink); }
++.service-icon::after { position: absolute; content: ""; inset: 1.2rem 0.8rem; border-radius: 0.55rem; background: linear-gradient(135deg, var(--accent), var(--lime)); }
++.dashboard { width: 6.7rem; height: 4.9rem; border-radius: 1rem; }
++.browser { width: 6.7rem; height: 5.3rem; border-radius: 1.2rem; }
++
++.about { align-items: center; background: var(--panel); border-block: 1px solid var(--line); }
++.about h2 { font-size: clamp(3.25rem, 8vw, 8rem); margin-bottom: 1.4rem; }
++.about-visual {
++  position: relative;
++  min-height: 33rem;
++  border-radius: 2.5rem;
++  background: linear-gradient(135deg, #1b1813, #47311f);
++  overflow: hidden;
++  box-shadow: var(--shadow);
++}
++.orb { position: absolute; border-radius: 999px; filter: blur(0.2px); }
++.orb-one { width: 14rem; height: 14rem; top: 9%; right: 12%; background: var(--yellow); }
++.orb-two { width: 20rem; height: 20rem; left: -12%; bottom: -10%; background: var(--accent); }
++.device-stack { position: absolute; inset: 18% 10% 11%; }
++.tablet,
++.phone-small {
++  position: absolute;
++  border: 0.55rem solid #fff;
++  border-radius: 1.8rem;
++  background: linear-gradient(160deg, #fff6df 20%, #e9b76e 20% 42%, #15120d 42% 100%);
++  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.28);
++}
++.tablet { inset: 8% 8% 4% 16%; transform: rotate(-5deg); }
++.phone-small { width: 10rem; height: 18rem; right: 7%; bottom: 4%; transform: rotate(7deg); }
++
++.testimonials,
++.work,
++.cta,
++.site-footer { padding: clamp(3rem, 7vw, 7.25rem) clamp(1rem, 4vw, 4.75rem); }
++.testimonials {
++  display: grid;
++  grid-template-columns: 1fr auto;
++  gap: 2rem;
++  align-items: start;
++}
++.testimonials h2,
++.work h2,
++.cta h2 { font-size: clamp(3rem, 7vw, 7rem); }
++.ghost-button,
++.outline-button { border: 1px solid var(--ink); color: var(--ink); background: transparent; }
++.testimonial-card {
++  grid-column: 1 / -1;
++  display: grid;
++  grid-template-columns: auto 1fr auto;
++  gap: 1.4rem;
++  align-items: center;
++  padding: clamp(1.25rem, 3vw, 2rem);
++  border: 1px solid var(--line);
++  border-radius: 2rem;
++  background: var(--panel);
++  box-shadow: var(--shadow);
++}
++.avatar {
++  display: grid;
++  place-items: center;
++  width: 5.8rem;
++  height: 5.8rem;
++  border-radius: 999px;
++  background: var(--ink);
++  color: var(--panel);
++  font-weight: 900;
++}
++.testimonial-card strong,
++.testimonial-card span { display: block; }
++.testimonial-card span { color: var(--muted); margin-top: 0.25rem; }
++.slider-controls { display: flex; gap: 0.5rem; font-size: 2rem; font-weight: 900; }
++.slider-controls span { display: grid; place-items: center; width: 3rem; height: 3rem; border-radius: 999px; background: var(--cream); }
++
++.work { background: var(--ink); color: var(--panel); }
++.work-heading { display: flex; align-items: end; justify-content: space-between; gap: 1rem; margin-bottom: 2rem; }
++.work .outline-button { border-color: rgba(255, 255, 255, 0.4); color: var(--panel); }
++.project-list { border-top: 1px solid rgba(255, 255, 255, 0.16); }
++.project-row {
++  display: grid;
++  grid-template-columns: minmax(0, 1fr) auto auto;
++  gap: 1rem;
++  align-items: center;
++  padding: clamp(1.2rem, 2.5vw, 2rem) 0;
++  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
++}
++.project-row span { font-size: clamp(1.35rem, 3vw, 2.4rem); font-weight: 900; letter-spacing: -0.055em; }
++.project-row em { color: #c9beb2; font-style: normal; }
++.project-row strong { color: var(--yellow); }
++
++.cta {
++  display: grid;
++  justify-items: center;
++  text-align: center;
++  background: linear-gradient(145deg, var(--cream), var(--paper));
++}
++.cta h2 { max-width: 14ch; }
++.site-footer {
++  display: grid;
++  grid-template-columns: 1fr auto;
++  gap: 2rem;
++  align-items: start;
++  border-top: 1px solid var(--line);
++}
++.site-footer p { margin: 0.8rem 0 0; color: var(--muted); }
++.social-links { grid-column: 1 / -1; }
++
++@media (max-width: 980px) {
++  .site-header { align-items: flex-start; }
++  .nav-links { display: none; }
++  .section-grid,
++  .testimonials,
++  .site-footer { grid-template-columns: 1fr; }
++  .hero-side { align-self: stretch; }
++  .work-heading { align-items: start; flex-direction: column; }
++}
++
++@media (max-width: 640px) {
++  .service-card,
++  .testimonial-card,
++  .project-row { grid-template-columns: 1fr; }
++  .portrait-card { min-height: 28rem; }
++  .designer-title { font-size: 3.6rem; }
++  .about-visual { min-height: 24rem; }
++  .tablet { inset: 12% 3% 8% 6%; }
++  .phone-small { width: 7rem; height: 13rem; }
++}
++.blog-note {
++  padding: 1.2rem clamp(1rem, 4vw, 4.75rem);
++  text-align: center;
++  color: var(--muted);
++  background: var(--panel);
++  border-top: 1px solid var(--line);
++}
+ 
+EOF
+)
