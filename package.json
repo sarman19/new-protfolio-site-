@@ -1,0 +1,20 @@
+ (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
+diff --git a/package.json b/package.json
+new file mode 100644
+index 0000000000000000000000000000000000000000..d2438570e3f945f10a00950fb3ea9d7188125e7b
+--- /dev/null
++++ b/package.json
+@@ -0,0 +1,10 @@
++{
++  "name": "shariar-sarman-portfolio",
++  "version": "1.0.0",
++  "private": true,
++  "description": "Static portfolio implementation inspired by the supplied Figma design.",
++  "scripts": {
++    "start": "python3 -m http.server 4173",
++    "check": "python3 scripts/check_static.py"
++  }
++}
+ 
+EOF
+)
