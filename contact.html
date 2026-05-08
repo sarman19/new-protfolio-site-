@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Contact Shariar Sarman for UX, UI, web app, mobile app, and landing page design projects."
+    />
+    <title>Contact — Shariar Sarman</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header" aria-label="Primary navigation">
+        <a class="brand" href="index.html" aria-label="Shariar home">Shariar</a>
+        <nav class="nav-links" aria-label="Main menu">
+          <a href="index.html">Home</a>
+          <a href="index.html#about">About</a>
+          <a href="work.html">My Work</a>
+          <a href="work.html#case-study">Case Study</a>
+          <a class="is-active" href="contact.html">Contact</a>
+        </nav>
+        <a class="icon-button" href="https://www.linkedin.com" aria-label="LinkedIn profile"><span aria-hidden="true">in</span></a>
+      </header>
+
+      <main>
+        <section class="contact-layout" id="contact" aria-labelledby="contact-title">
+          <div class="contact-copy">
+            <p class="eyebrow">Launch ready</p>
+            <h1 id="contact-title">Ready to turn the full design into a live website?</h1>
+            <p>
+              Share the project goal, timeline, and reference links. Shariar can
+              shape the next UX/UI direction, landing page, or web app flow.
+            </p>
+            <a class="cta-button" href="mailto:shariar.sarman@gmail.com">Email Shariar</a>
+          </div>
+          <form class="contact-card" action="mailto:shariar.sarman@gmail.com" method="post" enctype="text/plain">
+            <label>
+              Your name
+              <input type="text" name="name" placeholder="Your name" />
+            </label>
+            <label>
+              Email address
+              <input type="email" name="email" placeholder="you@example.com" />
+            </label>
+            <label>
+              Project type
+              <select name="project-type">
+                <option>Mobile App</option>
+                <option>Web App Design</option>
+                <option>Landing Page</option>
+                <option>Full Website</option>
+              </select>
+            </label>
+            <label>
+              Message
+              <textarea name="message" rows="5" placeholder="Tell me about your project"></textarea>
+            </label>
+            <button type="submit">Send Inquiry</button>
+          </form>
+        </section>
+
+        <section class="contact-strip" aria-label="Direct links">
+          <a href="mailto:shariar.sarman@gmail.com">shariar.sarman@gmail.com</a>
+          <a href="https://www.behance.net">Behance</a>
+          <a href="https://dribbble.com">Dribbble</a>
+          <a href="https://www.linkedin.com">LinkedIn</a>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div>
+          <a class="footer-brand" href="index.html">Shariar Sarman</a>
+          <p>© Designed by Shariar Sarman</p>
+        </div>
+        <nav aria-label="Footer menu">
+          <a href="index.html">Home</a>
+          <a href="index.html#about">About</a>
+          <a href="work.html">Work</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <div class="social-links" aria-label="Social profiles">
+          <a href="https://www.linkedin.com">LinkedIn</a>
+          <a href="https://www.behance.net">Behance</a>
+          <a href="https://dribbble.com">Dribbble</a>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
